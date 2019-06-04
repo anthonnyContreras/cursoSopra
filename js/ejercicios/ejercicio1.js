@@ -23,7 +23,7 @@ function adivinarNumero(){
             alert("El numero que has introducido es menor al numero");
         }
         else{
-            alert("Has ganado!!!!" +", El numero de intentos que necesitastes: "+ intentos);
+            alert("Has ganado!!!!"+", El numero de intentos que necesitastes: "+ intentos);
         }
     } while(numero !== Number(numeroUsuario)); 
 }
