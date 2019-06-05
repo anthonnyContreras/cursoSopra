@@ -221,3 +221,53 @@ console.log(global)
 console.log(global2)
 //console.log(local) is not defined
 console.log( globalSinVar )
+
+
+
+const edad = 28;
+//edad = 10; //dará error porque no puedo modificar su valor
+
+function test(p1) {
+    let n1 = 1;  //con el let solo existe en su bloque
+    var n2 = 2;
+    if(p1 == 0){
+        let n1 = 3;
+        var n2=4;
+        console.log("n1 = "+ n1);  //let solo existe en cada bloque
+        console.log("n2 = "+ n2);  //var si existe en toda la funcion
+    }
+    console.log("n1 = "+ n1);
+    console.log("n2 = "+ n2);
+}
+test(0);
+
+//template literals
+let n3 = "hey";
+let n4 = " mundo";
+let mensaje = "esto es un mensaje que dice " + n3 + ", " + n4 + " :<" ;
+console.log(mensaje);
+let mensaje2 = `esot es un mensaje que dice ${n3}, ${n4} :>`;
+console.log(mensaje2);
+function restar() { return (2-2);};
+let suma = `La suma de 2+2 es ${2+2} y la resta es ${restar()}`
+console.log(suma);
+console.log(`
+Estoy dejando espacios
+*      los muñions
+
+     huuuuuu
+       hoooollalaaaa
+`)
+//las funciones lambda o de flechas, son funciones anonimas 
+let numL1 = [1,2,3,4,5,6].map(function (num) {
+    return num%2;
+})
+
+let numL2 = [1,2,3,4,5,6].map(num => {
+    return num%2;
+})
+let numL2 = [1,2,3,4,5,6].map(num => num%2); //si solo devolvemos un parametro sin mas se puede omitir el return y las {} y los ()
+let numL2 = [1,2,3,4,5,6].map((num,post) => num%2); //si paso 2 parametros si se necesitas los ()
+    
+console.log(numL1)
+console.log(numL2)

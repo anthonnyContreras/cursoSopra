@@ -72,3 +72,47 @@ console.log(objetoSerie2);
 
 var cancionBatman = new Array(16).join("what"-1) +'Batman!';
 console.log(cancionBatman);
+
+
+//prototype
+
+//this sera lo que llame a la funcion pintar, ejemplo si yp usa pintar() this sera objeto de tipo window, pero si hago coche.pintar() this sera un objeto de tipo coche
+function Coche(marca,modelo, color) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.color = color;
+
+    this.pintar = function (nuevoColor) {
+        this.color = nuevoColor;    
+    }
+}
+
+let tesla = new Coche('Tesla','Roaster','rojo');
+let audi = new Coche('Audi','A3','negro');
+
+console.log(tesla);
+console.log(audi);
+//para que las funciones sean comnues a la clase y no al objeto
+//para ello se usa prototype, en el inspeccionar tenemos __proto__ donde se ve el constructor comun a los objetos
+console.log(`******************************`);
+function CocheProto(marca,modelo, color) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.color = color;
+    //le quito el metodo
+    /*this.pintar = function (nuevoColor) {
+        this.color = nuevoColor;    
+    }*/
+}
+CocheProto.prototype.pintar = function (nuevoColor) {
+    this.color = nuevoColor;    
+}
+
+tesla = new CocheProto('Tesla','Roaster','rojo');
+audi = new CocheProto('Audi','A3','negro');
+console.log(tesla);
+console.log(audi);
+
+console.log(`cambio los colores de tesla a verde ${tesla.pintar("Verde")}  y del audi a rojo ${audi.pintar("rojo")}`)
+console.log(tesla);
+console.log(audi);
